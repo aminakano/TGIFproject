@@ -75,23 +75,6 @@ function filterData() {
 
 // dropdown filter
 
-
-// function stateFilter(){
-//
-//     var stateList = [];
-//     for (var i = 0; i < members.length; i++) {
-//       if(!stateList.includes(members[i].state))
-//         stateList.push(members[i].state);
-//     }
-//     stateList.sort();
-//     for (var i = 0; i < stateList.length; i++) {
-//       var option = document.createElement('option');//<option>
-//       option.innerHTML= stateList[i];
-//       option.value= stateList[i];
-//       state50.appendChild(option);
-//     }
-//   }
-
 stateFilter();
 
 function stateFilter() {
