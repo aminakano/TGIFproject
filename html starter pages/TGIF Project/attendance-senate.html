@@ -1,190 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <title>Senate Attendance statistics</title>
-      <link rel="stylesheet" href="styles.css">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    </head>
 
-    <body>
-         <nav>
-          <div>
-            <div>
-              <a href="#">TGIF</a>
-            </div>
-            <ul >
-              <li><a href="#">Home</a></li>
-              <li >
-                <a href="#">Congress 113</a>
-                <ul >
-                  <li><a href="#">Senate</a></li>
-                  <li><a href="#">House</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Attendance</a></li>
-                <ul>
-                    <li><a href="#">Senate</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Party Loyalty</a>
-                <ul>
-                    <li><a href="#">Senate</a></li>
-                    <li><a href="#">House</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+<head>
+  <meta charset="utf-8">
+  <title>Senate Attendance statistics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
 
+<body>
+  <div class="flex-row d-flex justify-content-between">
+    <div class="logo flex-row">
 
-        <header>
-            <div>
-            </div>
-        </header>
-        <!--Table container-->
-        <div>
-          <div class="container w-75">
+      <a href="index.html"><img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-nmPL7t1cR4A%2FU9e9mgGxBMI%2FAAAAAAAA1t4%2FZPj35qGHeKI%2Fs1600%2Ftgif-950x950.png&f=1" alt="tgif-logo"></a>
+
+    </div>
+    <div class="text-right"><i class="fas fa-envelope"></i><a href="mailto:info@tgif.net">info@tgif.net</a></div>
+  </div>
+  <nav>
+    <div>
+    
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li>
+          <a href="#">Congress 113</a>
+          <ul>
+            <li><a href="#">Senate</a></li>
+            <li><a href="#">House</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Attendance</a></li>
+        <ul>
+          <li><a href="#">Senate</a></li>
+          <li><a href="#">House</a></li>
+        </ul>
+        </li>
+        <li>
+          <a href="#">Party Loyalty</a>
+          <ul>
+            <li><a href="#">Senate</a></li>
+            <li><a href="#">House</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 
-            <h2>Attendance</h2>
-            <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue even if a majority is not present.</p>
+  <header>
+    <div>
+    </div>
+  </header>
+  <!--Table container-->
+  <div class="container">
+    <div class="flex-row d-flex justify-content-around padding-top">
+      <div class="w-50">
+        <h2>Attendance</h2>
+        <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue
+          even if a majority is not present.</p>
 
-            <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all 435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
-        </div>
-
-            <h2>Senate at a glance</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Party</th>
-                        <th>Number of Reps</th>
-                        <th>% Voted with Prty</th>
-                    </tr>
-                </thead>
-                <tbody id="glance">
-                    <tr id='tableDemocrat'>
-                        <td>Democrat</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr id='tableRepublican'>
-                        <td>Republican</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr id="tableIndependent">
-                        <td>Independent</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Least Engaged (Bottom 10% Attendance)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number of Missed Votes</th>
-                        <th>% Missed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2>Most Engaged (Top 10% Attendance)</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Number of Missed Votes</th>
-                        <th>% Missed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                    </tr>
-                </tbody>
-            </table>
-
-    	</div>
-      <footer>
-        <p>&copy;2016 TGIF &#124; All Right Reserved</p>
-      </footer>
-      <script type="text/javascript" src='pro-congress-113-senate.js'>
-      </script>
-      <script type="text/javascript" src="statistics.js"></script>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all
+          435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
+      </div>
+      <div>
+        <h2>Senate at a glance</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Party</th>
+              <th>Number of Reps</th>
+              <th>% Voted with Prty</th>
+            </tr>
+          </thead>
+          <tbody id="glance">
+            <tr id='tableDemocrat'>
+              <td>Democrat</td>
+            </tr>
+            <tr id='tableRepublican'>
+              <td>Republican</td>
+            </tr>
+            <tr id="tableIndependent">
+              <td>Independent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="flex-row d-flex justify-content-around padding-top">
+      <div class="">
+        <h2>Least Engaged (Bottom 10% Attendance)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Number of Missed Votes</th>
+              <th>% Missed</th>
+            </tr>
+          </thead>
+          <tbody id="least10">
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h2>Most Engaged (Top 10% Attendance)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Number of Missed Votes</th>
+              <th>% Missed</th>
+            </tr>
+          </thead>
+          <tbody id="best10">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>&copy;2016 TGIF &#124; All Right Reserved</p>
+  </footer>
+  <script type="text/javascript" src='pro-congress-113-senate.js'>
+  </script>
+  <script type="text/javascript" src="statistics.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
