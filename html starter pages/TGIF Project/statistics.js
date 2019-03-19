@@ -4,6 +4,7 @@ var glance = document.getElementById('glance');
 var tableRepublican = document.getElementById('tableRepublican');
 var tableDemocrat = document.getElementById('tableDemocrat');
 var tableIndependent = document.getElementById('tableIndependent');
+var tableTotal = document.getElementById('tableTotal');
 
 var most10 = document.getElementById('most10');
 var least10 = document.getElementById('least10');
@@ -29,7 +30,7 @@ var statistics = {
 
 
 
-if(location.pathname == "/Users/aminakano/html%20starter%20pages/TGIF%20Project/loyalty-senate.html" || location.pathname == "/Users/aminakano/html%20starter%20pages/TGIF%20Project/loyalty-house.html") {
+if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/loyalty-house.html") {
   var mostLoyal = statistics['mostLoyal_pct_votes_desc'];
   var leastLoyal = statistics['leastLoyal_pct_votes_asc'];
   createLoyal10pct(leastLoyal,notLoyal);
@@ -115,7 +116,9 @@ function tenPercent(array, key){
 }
 
 
-// at a glance page
+// at a glance table
+
+// console.log(Object.keys(statistics)[0]);
 
 {
 var tableDem = document.createElement('td');
@@ -124,7 +127,7 @@ glance.appendChild(tableDemocrat);
 tableDemocrat.appendChild(tableDem);
 tableDemocrat.appendChild(votesDemocrat);
 tableDem.textContent = statistics['number_of_Democrats'];
-votesDemocrat.textContent=statistics['percent_voted_party_democrat'];
+votesDemocrat.textContent=statistics['percent_voted_party_democrat']+"%";
 
 var tableRep = document.createElement('td');
 var votesRepublican = document.createElement('td');
@@ -132,7 +135,7 @@ glance.appendChild(tableRepublican);
 tableRepublican.appendChild(tableRep);
 tableRepublican.appendChild(votesRepublican);
 tableRep.textContent = statistics['number_of_Republicans'];
-votesRepublican.textContent = statistics['percent_voted_party_republican'];
+votesRepublican.textContent = statistics['percent_voted_party_republican']+"%";
 
 var tableInd = document.createElement('td');
 var votesIndependent = document.createElement('td');
@@ -140,23 +143,24 @@ glance.appendChild(tableIndependent);
 tableIndependent.appendChild(tableInd);
 tableIndependent.appendChild(votesIndependent);
 tableInd.textContent=statistics['number_of_Independent'];
-votesIndependent.textContent=statistics['percent_voted_party_independent'];
+
+if(isNaN(statistics['percent_voted_party_independent'])) {
+  votesIndependent.textContent= 0;
+}else{
+  votesIndependent.textContent=statistics['percent_voted_party_independent']+"%";
+}
+
+var tableSum = document.createElement('td');
+var votesTotal = document.createElement('td');
+glance.appendChild(tableTotal);
+tableTotal.appendChild(tableSum);
+tableTotal.appendChild(votesTotal);
+tableSum.textContent = statistics['number_of_Democrats'] + statistics['number_of_Republicans'] + statistics['number_of_Independent'];
 }
 
 
 console.log(Object.keys(statistics)[6]);
 console.log(Object.keys(statistics)[9]);
-console.log(statistics['mostLoyal_pct_votes_desc']);
-
-console.log(statistics['mostEngaged_missed_votes_asc'][0].last_name);
-console.log(statistics['mostEngaged_missed_votes_asc'][0].first_name);
-console.log(statistics['mostEngaged_missed_votes_asc'][0].missed_votes);
-console.log(statistics['mostEngaged_missed_votes_asc'][0].missed_votes_pct);
-
-// tables below
-
-
-
 
 // attendance tables
 function createAttendance10pct(object, tbody){
@@ -165,6 +169,9 @@ function createAttendance10pct(object, tbody){
     var dataTop10Name = document.createElement('td');
     var dataTop10missedVotes = document.createElement('td');
     var dataTop10missedVotesPct = document.createElement('td');
+    var nameLink = document.createElement('a');
+    dataTop10Name.appendChild(nameLink);
+    nameLink.setAttribute('href', object[i].url);
     tbody.appendChild(dataTop10);
     dataTop10.appendChild(dataTop10Name);
     dataTop10.appendChild(dataTop10missedVotes);
@@ -176,22 +183,22 @@ function createAttendance10pct(object, tbody){
     } else {
       middleNames = "";
     }
-    dataTop10Name.textContent = object[i].first_name + " " + middleNames + " " + object[i].last_name;
+    nameLink.textContent = object[i].first_name + " " + middleNames + " " + object[i].last_name;
     dataTop10missedVotes.textContent = object[i].missed_votes;
-    dataTop10missedVotesPct.textContent = object[i].missed_votes_pct;
+    dataTop10missedVotesPct.textContent = object[i].missed_votes_pct +"%";
   }
 }
 
 //loyalty tables
-
-
 function createLoyal10pct(object, tbody){
-  console.log(object)
   for(var i = 0; i < object.length; i++){
     var dataTop10 = document.createElement('tr');
     var dataTop10Name = document.createElement('td');
     var dataTop10partyVotes = document.createElement('td');
     var dataTop10partyVotesPct = document.createElement('td');
+    var nameLink = document.createElement('a');
+    dataTop10Name.appendChild(nameLink);
+    nameLink.setAttribute('href', object[i].url);
     tbody.appendChild(dataTop10);
     dataTop10.appendChild(dataTop10Name);
     dataTop10.appendChild(dataTop10partyVotes);
@@ -203,8 +210,8 @@ function createLoyal10pct(object, tbody){
     } else {
       middleNames = "";
     }
-    dataTop10Name.textContent = object[i].first_name + " " + middleNames + " " + object[i].last_name;
+    nameLink.textContent = object[i].first_name + " " + middleNames + " " + object[i].last_name;
     dataTop10partyVotes.textContent = object[i].total_votes;
-    dataTop10partyVotesPct.textContent = object[i].votes_with_party_pct;
+    dataTop10partyVotesPct.textContent = object[i].votes_with_party_pct  +"%";
   }
 }
