@@ -1,17 +1,49 @@
-var members = data.results[0].members;
 var tableData = document.getElementById('table-data');
 var republican = document.getElementById('republican');
 var democrat = document.getElementById('democrat');
 var independent = document.getElementById('independent');
 var state50 = document.getElementById('state50');
+var loader = document.getElementById('loader');
+var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
+var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json"
 
 
-republican.addEventListener('click', filterData)
-democrat.addEventListener('click', filterData)
-independent.addEventListener('click', filterData)
-state50.addEventListener('change', filterData)
+if(location.pathname == "/TGIF%20Project/house-data.html"){
+  getData(houseApi);
+}else if(location.pathname == "/TGIF%20Project/senate-data.html"){
+  getData(senateApi);
+}
 
-filterData()
+function getData(url) {
+
+    fetch(url, {
+            method: "GET",
+            headers: new Headers({
+            "X-API-KEY": 'w69WFSEZGEBl6zHKSHGWwq99yI1LZW7G59lX2Z35'
+            })
+        })
+
+        .then(function (response) {
+        //first promise
+            return response.json();
+        }).then(function (json) {
+        //second promise
+        //the data exists here
+        var members = json.results[0].members;
+        republican.addEventListener('click', function() {filterData(members)})
+        democrat.addEventListener('click', function() {filterData(members)})
+        independent.addEventListener('click', function() {filterData(members)})
+        state50.addEventListener('change',function() {filterData(members)})
+        stateFilter(members);
+        filterData(members);
+        return loader.style.display = "none";
+
+        console.log(loader);
+
+        }).catch(function (error) {
+            console.log(error)
+        })
+}
 
 // Table
 
@@ -55,7 +87,7 @@ function createTable(members) {
 }
 // checkbox filter
 
-function filterData() {
+function filterData(members) {
   let filteredData = [];
   for (var i = 0; i < members.length; i++) {
     if (members[i].state == state50.value || state50.value == 'none') {
@@ -75,16 +107,13 @@ function filterData() {
 
 // dropdown filter
 
-stateFilter();
-
-function stateFilter() {
+function stateFilter(members) {
   var stateList = [];
   for (let i = 0; i < members.length; i++) {
     if (!stateList.includes(members[i].state))
       stateList.push(members[i].state);
   }
   stateList.sort();
-  console.log(stateList);
   for (let i = 0; i < stateList.length; i++) {
     var option = document.createElement('option'); //<option>
     option.innerHTML = stateList[i];
