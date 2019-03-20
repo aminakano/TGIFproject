@@ -50,8 +50,8 @@
   </header>
   <!--Table container-->
   <div class="container">
-    <div class="flex-row d-flex justify-content-around padding-top">
-      <div class="w-50">
+    <div class="flex-row d-flex justify-content-around padding-top border-bottom">
+      <div class="w-50 padding">
         <h2>Attendance</h2>
         <p>The Constitution specifies that a majority of members constitutes a quorum to do business in each house. Representatives and senators rarely force the presence of a quorum by demanding quorum calls; thus, in most cases, debates continue
           even if a majority is not present.</p>
@@ -59,11 +59,11 @@
         <p>The Senate uses roll-call votes; a clerk calls out the names of all the senators, each senator stating "aye" or "no" when his or her name is announced. The House reserves roll-call votes for the most formal matters, as a roll-call of all
           435 representatives takes quite some time; normally, members vote by electronic device. In the case of a tie, the motion in question fails. In the Senate, the Vice President may (if present) cast the tiebreaking vote.</p>
       </div>
-      <div>
-        <h2>Senate at a glance</h2>
-        <table>
+      <div class="padding">
+        <h2 class="right">Senate at a glance</h2>
+        <table class="table border-bottom bg-light">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th>Party</th>
               <th>Number of Reps</th>
               <th>% Voted with Prty</th>
@@ -79,16 +79,19 @@
             <tr id="tableIndependent">
               <td>Independent</td>
             </tr>
+            <tr id="tableTotal">
+              <td>Total</td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="flex-row d-flex justify-content-around padding-top">
-      <div class="">
-        <h2>Least Engaged (Bottom 10% Attendance)</h2>
-        <table>
+    <div class="flex-row d-flex justify-content-around">
+      <div class="w-50 padding">
+        <h3>Least Engaged <span class="font-weight-normal small">(Bottom 10% Attendance)</span></h3>
+        <table class="table bg-light">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th>Name</th>
               <th>Number of Missed Votes</th>
               <th>% Missed</th>
@@ -98,11 +101,11 @@
           </tbody>
         </table>
       </div>
-      <div>
-        <h2>Most Engaged (Top 10% Attendance)</h2>
-        <table>
+      <div class="w-50 padding">
+        <h3>Most Engaged <span class="font-weight-normal small">(Top 10% Attendance)</span></h3>
+        <table class="table bg-light">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th>Name</th>
               <th>Number of Missed Votes</th>
               <th>% Missed</th>

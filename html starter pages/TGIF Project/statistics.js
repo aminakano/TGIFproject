@@ -98,7 +98,6 @@ function sortArrayDescending(key){
   });
   return attendanceArray;
 }
-sortArrayDescending();
 
 // get 10 percent
 function tenPercent(array, key){
