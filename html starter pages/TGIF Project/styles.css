@@ -92,6 +92,7 @@ select{
 }
 table{
   margin: 0 auto;
+
 }
 
 td {
@@ -114,6 +115,12 @@ footer {
 footer p {
   padding-top:40px;
   color: #616060;
+}
+.position {
+  position:relative;
+}
+.index {
+  z-index: 10;
 }
 .lds-roller {
   display: inline-block;
@@ -199,3 +206,95 @@ footer p {
     transform: rotate(360deg);
   }
 }
+
+/* loader2 */
+
+
+.loading {
+    width: 200px;
+    height: 50px;
+    margin: 150px auto;
+    position: relative
+}
+
+.loading span {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50px;
+    display: block;
+    background-color: dodgerblue;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.loading span:nth-of-type(1) {
+    animation-name: clockLeft;
+}
+
+.loading span:nth-of-type(2) {
+    left: 20px;
+    animation-name: boom;
+    animation-duration: 1.2s;
+    animation-delay: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.loading span:nth-of-type(3) {
+    left: 40px;
+    animation-name: boom;
+    animation-duration: 1.2s;
+    animation-delay: 1.4s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.loading span:nth-of-type(4) {
+    left: 60px;
+    animation-name: boom;
+    animation-duration: 1.2s;
+    animation-delay: 1.6s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+.loading span:last-of-type {
+    left: 80px;
+    animation-name: clockRight;
+    animation-delay: 0.8s;
+}
+
+@keyframes clockLeft {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    25% {
+        transform: rotate(50deg) translate(-80px, 10px);
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: rotate(0deg) translate(0, 0);
+        animation-timing-function: ease-out;
+    }
+}
+
+@keyframes clockRight {
+    0% {
+        transform: rotate(0deg) translate(0, 0);
+    }
+    25% {
+        transform: rotate(-50deg) translate(80px, -10px);
+        animation-timing-function: ease-out;
+    }
+    75% {
+        transform: rotate(0deg) translate(0, 0);
+        animation-timing-function: ease-out;
+    }
+}
+
+
+
+	
