@@ -38,8 +38,6 @@ function getData(url) {
         filterData(members);
         return loader.style.display = "none";
 
-        console.log(loader);
-
         }).catch(function (error) {
             console.log(error)
         })
@@ -99,6 +97,7 @@ function filterData(members) {
       }
       if (members[i].party == 'I' && independent.checked == true) {
         filteredData.push(members[i]);
+
       }
     }
   }

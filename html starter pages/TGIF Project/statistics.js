@@ -12,10 +12,8 @@ var least10 = document.getElementById('least10');
 var loyal = document.getElementById('loyal');
 var notLoyal = document.getElementById('notLoyal');
 
-
-
 var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
-var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json"
+var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json";
 
 if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html"){
   console.log("house")
