@@ -15,7 +15,7 @@ var notLoyal = document.getElementById('notLoyal');
 var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
 var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json";
 
-if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
+if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html'){
   getData(houseApi);
 }else if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/attendance-senate.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
   getData(senateApi);
