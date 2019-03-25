@@ -4,9 +4,6 @@ var loader = document.getElementById('loader');
 var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
 var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json"
 
-
-
-
 const app = new Vue({
   el:"#app",
   data: {
@@ -21,7 +18,7 @@ const app = new Vue({
       this.getData(houseApi);
 
 
-    }else if(location.pathname == "/TGIF%20Project/senate-data.html"){
+    }else if(location.pathname == "/TGIF%20Project/senate-data.html" || location.pathname == "/TGIFproject/html%20starter%20pages/TGIF%20Project/senate-data.html"){
       this.getData(senateApi);
 
   }},
@@ -36,15 +33,11 @@ const app = new Vue({
             })
 
             .then(function (response) {
-            //first promise
                 return response.json();
             }).then(function (json) {
-            //second promise
-            //the data exists here
             app.members = json.results[0].members;
             app.filteredData = app.members;
             app.show = false;
-             console.log(app.members)
             var republican = document.getElementById('republican');
             var democrat = document.getElementById('democrat');
             var independent = document.getElementById('independent');
@@ -56,9 +49,7 @@ const app = new Vue({
             })
     },
       filterData: function() {
-
           app.filteredData = [];
-
       for (var i = 0; i < app.members.length; i++) {
 
         if (app.members[i].state == state50.value || state50.value == 'none') {
@@ -79,13 +70,11 @@ const app = new Vue({
     },
       stateFilter: function() {
       app.stateList = [];
-
       for (let i = 0; i < app.members.length; i++) {
         if (!app.stateList.includes(app.members[i].state)){
           app.stateList.push(app.members[i].state);}
       }
       app.stateList.sort();
     }
-
   }
 })
