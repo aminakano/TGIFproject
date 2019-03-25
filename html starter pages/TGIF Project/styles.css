@@ -33,6 +33,7 @@ header {
 .dropdown {
   margin-bottom: 0;
   height: 100px;
+  padding-left: 0;
 }
 .dropdown li {
   margin-right:30px;
@@ -88,7 +89,20 @@ header {
 .right {
   text-align: right;
 }
+.statimg img {
+  width: 350px;
+  height: 300px;
+}
+.loyaltyimg img {
+  width:250px;
+  height:250px;
+  opacity: 0.7;
+}
 
+.btn-primary {
+  border-color: transparent !important;
+  outline: none;
+}
 ul {
   list-style: none;
   display: flex;
@@ -114,7 +128,6 @@ select{
 }
 table{
   margin: 0 auto;
-
 }
 
 td {
@@ -224,4 +237,6 @@ footer p {
         transform: rotate(0deg) translate(0, 0);
         animation-timing-function: ease-out;
     }
+
+
 }
