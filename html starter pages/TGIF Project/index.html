@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Home Page</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
-
 <body>
   <div class="flex-row d-flex justify-content-between">
     <div class="logo flex-row">
-
       <a href="#"><img src="https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2F2.bp.blogspot.com%2F-nmPL7t1cR4A%2FU9e9mgGxBMI%2FAAAAAAAA1t4%2FZPj35qGHeKI%2Fs1600%2Ftgif-950x950.png&f=1" alt="tgif-logo"></a>
-
+    </div>
+    <div class="d-flex align-items-center">
+      <h1 class="h1">T<small>ransparent</small> G<small>overnment</small> I<small>n</small> F<small>act</small></h1>
     </div>
     <div class="text-right"><i class="fas fa-envelope"></i><a href="mailto:info@tgif.net">info@tgif.net</a></div>
   </div>
@@ -47,8 +47,8 @@
       </ul>
     </div>
   </header>
-  <!--Table container-->
   <div class="container home w-75 ">
+  <div class="padding20">
     <h2>About Us</h2>
     <p>Openness, accountability, and honesty define government transparency. In a free society, transparency is government's obligation to share information with citizens. It is at the heart of how citizens hold their public officials accountable.
       Here at TGIF we believe that government should be transparent.</p>
@@ -57,16 +57,14 @@
     <p>We also believe that government should be participatory. Public engagement enhances the Government's effectiveness and improves the quality of its decisions. Knowledge is widely dispersed in society, and public officials benefit from having
       access to that dispersed knowledge. We invite you to use our site to become actively engaged in American government.</p>
     <p>TGIF works to disclose information in forms that the public can readily find and use. We solicit public feedback to identify information of greatest use to the public.</p>
-
-    <div id='accordion' class="bg-white border-0">
-      <div class="card-header">
-        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-          Read more...
-        </a>
-      </div>
+  </div>
+    <div id='accordion' class="">
+      <a id="change" class="btn btn-primary text-primary bg-white" data-toggle="collapse" href="#collapseTwo" role="button" area-expanded='false' area-controls='collapseExample'>
+        Read more...
+      </a>
       <div id="collapseTwo" class="collapse" data-parent="#accordion">
         <div class="card-body">
-          <h3><span class="text-secondary">Background History of Government Transparency</span></h3>
+          <h3>Background History of Government Transparency</h3>
           <p>In the West, the idea that government should be open to public scrutiny and susceptible to public opinion dates back at least to the time of the Enlightenment, when many philosophes made an attack on absolutist doctrine of state
             secrecy, a
             core part of their intellectual project. The passage of formal legislative instruments to this end can also be traced to this time with Sweden, for example, (which then included Finland as a Swedish-governed territory) enacting free
@@ -91,6 +89,16 @@
   <footer>
     <p>&copy;2016 TGIF &#124; All Right Reserved</p>
   </footer>
+  <script type="text/javascript">
+    var change = document.getElementById('change');
+    change.addEventListener('click', function(){
+      if(change.textContent.includes('Read more...')){
+        change.textContent = 'Read less';
+      }else if(change.textContent.includes('Read less')){
+        change.textContent = 'Read more...';
+      }
+    });
+  </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

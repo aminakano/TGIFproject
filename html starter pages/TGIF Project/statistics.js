@@ -15,14 +15,11 @@ var notLoyal = document.getElementById('notLoyal');
 var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
 var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json";
 
-if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html"){
-  console.log("house")
+if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
   getData(houseApi);
-}else if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/attendance-senate.html"){
-  console.log("senate")
+}else if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/attendance-senate.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
   getData(senateApi);
 }
-
 
 function getData(url) {
 
@@ -34,11 +31,8 @@ function getData(url) {
         })
 
         .then(function (response) {
-        //first promise
             return response.json();
         }).then(function (json) {
-        //second promise
-        //the data exists here
         members = json.results[0].members;
 
         var repVote = calculateTotalVoteWithParty('R')/totalMembers('R');
@@ -78,7 +72,6 @@ function getData(url) {
 }
 
 
-// calculation votes
 function calculateTotalVoteWithParty(party){
   var sum = 0;
   for(var i = 0; i < members.length; i++){
@@ -89,7 +82,6 @@ function calculateTotalVoteWithParty(party){
     return sum;
 }
 
-//to find out the number of people in each party
 
 function totalMembers(party){
   var partyMembers = [];
@@ -100,7 +92,6 @@ function totalMembers(party){
   }return partyMembers.length;
 }
 
-// sort function - ascending
 function sortArrayAscending(key){
   var attendanceArray = [];
   for (var i =0; i < members.length; i++){
@@ -112,7 +103,6 @@ function sortArrayAscending(key){
   return attendanceArray;
 }
 
-// sort function - descending
 function sortArrayDescending(key){
   var attendanceArray = [];
   for (var i =0; i < members.length; i++){
@@ -124,7 +114,6 @@ function sortArrayDescending(key){
   return attendanceArray;
 }
 
-// get 10 percent
 function tenPercent(array, key){
   var tenPercentArray = [];
   for(var i = 0; i < array.length; i++){
@@ -140,7 +129,6 @@ function tenPercent(array, key){
 }
 
 
-// at a glance table
 function senateAtAGlanceTable () {
   var tableDem = document.createElement('td');
   var votesDemocrat = document.createElement('td');
@@ -177,15 +165,9 @@ function senateAtAGlanceTable () {
   tableTotal.appendChild(tableSum);
   tableTotal.appendChild(votesTotal);
   tableSum.textContent = statistics['number_of_Democrats'] + statistics['number_of_Republicans'] + statistics['number_of_Independent'];
-
 }
 
-
-// console.log(Object.keys(statistics)[9]);
-
-// attendance tables
 function createAttendance10pct(object, tbody){
-  console.log(object)
   for(var i = 0; i < object.length; i++){
     var dataTop10 = document.createElement('tr');
     var dataTop10Name = document.createElement('td');
@@ -211,7 +193,6 @@ function createAttendance10pct(object, tbody){
   }
 }
 
-//loyalty tables
 function createLoyal10pct(object, tbody){
   for(var i = 0; i < object.length; i++){
     var dataTop10 = document.createElement('tr');

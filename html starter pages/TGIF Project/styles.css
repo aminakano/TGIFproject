@@ -54,10 +54,24 @@ header {
   background: white;
   text-decoration: underline;
 }
+.dropdown-menu li {
+  height:50px;
+  display: flex;
+  align-items: center;
+}
+.dropdown-menu li a{
+  padding:0;
+  height: 40px;
+}
 .this{
   font-weight: bold;
   font-style: italic;
   text-decoration: underline;
+}
+.h1 {
+  letter-spacing: 2.5px;
+  font-family: 'Montserrat', sans-serif;
+  color: #585858;
 }
 /* header-end */
 
@@ -67,6 +81,9 @@ header {
 }
 .padding {
   padding: 35px;
+}
+.padding20 {
+  padding: 20px;
 }
 .right {
   text-align: right;
