@@ -15,7 +15,7 @@ var notLoyal = document.getElementById('notLoyal');
 var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
 var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json";
 
-if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html' ){
+if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html' ){
   getData(houseApi);
 }else if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/attendance-senate.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
   getData(senateApi);
@@ -52,7 +52,7 @@ function getData(url) {
         }
 
         senateAtAGlanceTable();
-        if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/loyalty-house.html") {
+        if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html' ) {
           var mostLoyal = statistics['mostLoyal_pct_votes_desc'];
           var leastLoyal = statistics['leastLoyal_pct_votes_asc'];
           createLoyal10pct(leastLoyal,notLoyal);
