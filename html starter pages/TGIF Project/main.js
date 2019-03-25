@@ -17,7 +17,6 @@ const app = new Vue({
     if(location.pathname == "/TGIF%20Project/house-data.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/house-data.html'){
       this.getData(houseApi);
 
-
     }else if(location.pathname == "/TGIF%20Project/senate-data.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/senate-data.html'){
       this.getData(senateApi);
 
