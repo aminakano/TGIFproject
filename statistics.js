@@ -11,13 +11,19 @@ var most10 = document.getElementById('most10');
 var least10 = document.getElementById('least10');
 var loyal = document.getElementById('loyal');
 var notLoyal = document.getElementById('notLoyal');
+const loyalty = location.pathname.split("/")[1].split("-")[0];
 
-var senateApi = "https://api.propublica.org/congress/v1/113/senate/members.json";
-var houseApi = "https://api.propublica.org/congress/v1/113/house/members.json";
+var senateApi =
+  "https://api.propublica.org/congress/v1/116/senate/members.json";
+var houseApi = "https://api.propublica.org/congress/v1/116/house/members.json";
 
-if(location.pathname == "/TGIF%20Project/attendance-house.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-house.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html' ){
+const chamber = location.pathname.split("/").slice(-1);
+if (chamber == "attendance-house.html" || chamber == "loyalty-house.html") {
   getData(houseApi);
-}else if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/attendance-senate.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/attendance-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html'){
+} else if (
+  chamber == "loyalty-senate.html" ||
+  chamber == "attendance-senate.html"
+) {
   getData(senateApi);
 }
 
@@ -29,10 +35,10 @@ function getData(url) {
             "X-API-KEY": 'w69WFSEZGEBl6zHKSHGWwq99yI1LZW7G59lX2Z35'
             })
         })
-
         .then(function (response) {
-            return response.json();
-        }).then(function (json) {
+          return response.json();
+        })
+        .then(function (json) {
         members = json.results[0].members;
 
         var repVote = calculateTotalVoteWithParty('R')/totalMembers('R');
@@ -52,15 +58,14 @@ function getData(url) {
         }
 
         senateAtAGlanceTable();
-        if(location.pathname == "/TGIF%20Project/loyalty-senate.html" || location.pathname == "/TGIF%20Project/loyalty-house.html" || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-senate.html' || location == 'https://aminakano.github.io/TGIFproject/html%20starter%20pages/TGIF%20Project/loyalty-house.html' ) {
-          var mostLoyal = statistics['mostLoyal_pct_votes_desc'];
-          var leastLoyal = statistics['leastLoyal_pct_votes_asc'];
-          createLoyal10pct(leastLoyal,notLoyal);
-          createLoyal10pct(mostLoyal,loyal);
-        }
-        else {
-          var mostEngaged = statistics['mostEngaged_missed_votes_asc'];
-          var leastEngaged = statistics['leastEngaged_missed_votes_desc'];
+        if (loyalty == "loyalty") {
+          var mostLoyal = statistics["mostLoyal_pct_votes_desc"];
+          var leastLoyal = statistics["leastLoyal_pct_votes_asc"];
+          createLoyal10pct(leastLoyal, notLoyal);
+          createLoyal10pct(mostLoyal, loyal);
+        } else {
+          var mostEngaged = statistics["mostEngaged_missed_votes_asc"];
+          var leastEngaged = statistics["leastEngaged_missed_votes_desc"];
           createAttendance10pct(mostEngaged, most10);
           createAttendance10pct(leastEngaged, least10);
         }
